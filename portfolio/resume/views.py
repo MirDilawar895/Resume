@@ -1,9 +1,18 @@
 from django.shortcuts import render
-
+from .models import About
+from .models import Skill, Testinomial
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    about = About.objects.all()
+    skill = Skill.objects.all()
+    testinomial = Testinomial.objects.all()
+    data = {
+        'about': about,
+        'skill': skill,
+        'testinomial': testinomial,
+    }
+    return render(request, 'home.html', data)
 
 
 def portfolio(request):
