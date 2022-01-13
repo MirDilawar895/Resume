@@ -47,7 +47,14 @@ class Blog(models.Model):
 
 
 
+class Answerable(models.Model):
+    question_no = models.CharField(max_length=50, null=True)
+    question_desc = RichTextField()
+    answer_desc = RichTextField()
 
+    def __str__(self):
+        return self.question_no
+    
 
 
 

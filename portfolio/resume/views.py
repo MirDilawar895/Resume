@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import About
-from .models import Skill, Testinomial, Project, Blog
+from .models import Skill, Testinomial, Project, Blog, Answerable
 # Create your views here.
 
 def home(request):
@@ -20,10 +20,20 @@ def home(request):
 
 
 def portfolio(request):
-    return render(request,'portfolio.html' )
+    about = About.objects.all()
+    project = Project.objects.all()
+    data = {
+'about': about,
+'project': project,
+    }
+    return render(request,'portfolio.html',data )
 
 def service(request):
-    return render(request,'service.html' )
+    answerable = Answerable.objects.all()
+    data ={
+        'answerable':answerable,
+    }
+    return render(request,'service.html',data )
 
 
 def resume(request):
