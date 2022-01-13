@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from .models import About
-from .models import Skill, Testinomial
+from .models import Skill, Testinomial, Project, Blog
 # Create your views here.
 
 def home(request):
     about = About.objects.all()
     skill = Skill.objects.all()
     testinomial = Testinomial.objects.all()
+    project = Project.objects.all()
+    blog = Blog.objects.all()
     data = {
         'about': about,
         'skill': skill,
         'testinomial': testinomial,
+        'project': project,
+        'blog':blog,
     }
     return render(request, 'home.html', data)
 

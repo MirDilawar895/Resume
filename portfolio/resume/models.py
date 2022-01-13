@@ -26,6 +26,25 @@ class Testinomial(models.Model):
     
 
 
+class Project(models.Model):
+    project_image = models.ImageField(upload_to='photos/%y/%m/%d/')
+    project_name = models.CharField(max_length=50, null=True)
+    project_desc = RichTextField()
+    project_client = models.CharField(max_length=50, null=True)
+
+    def __str__(self):
+        return self.project_name
+    
+
+class Blog(models.Model):
+    blog_image = models.ImageField(upload_to='photos/%y/%m/%d/')
+    blog_name = models.CharField(max_length=50, null=True)
+    blog_desc = RichTextField()
+    project_footer = models.CharField(max_length=50, null=True)
+
+    def __str__(self):
+        return self.blog_name
+
 
 
 
