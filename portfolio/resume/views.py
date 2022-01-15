@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import About
 from .models import Skill, Testinomial, Project, Blog, Answerable
+
+
 # Create your views here.
 
 def home(request):
@@ -37,20 +39,34 @@ def service(request):
 
 
 def resume(request):
-    return render(request,'resume.html' )
+    about = About.objects.all()
+    project = Project.objects.all()
+
+    data = {
+        'about': about,
+        'project': project,
+    }
+    return render(request,'resume.html',data  )
 
 def blog(request):
-    return render(request,'blog.html' )
+    blog = Blog.objects.all()
+    data = {
+        'blog': blog,
+
+    }
+    return render(request,'blog.html', data )
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        package = request.POST['package']
+        message = request.POST['message']
+
+        con = Contact(name=name, email=email, package=package, message=message)
+        con.save()
+        message.success(request,'Data insert Succesfully')
     return render(request,'contact.html' )
 
 
-def project(request):
-    return render(request, 'project.html')
 
-def content(request):
-    return render(request, 'content.html')
-
-def alting(request):
-    return render(request, 'alting.html')

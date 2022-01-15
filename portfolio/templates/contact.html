@@ -28,19 +28,20 @@
     </section>
     <section class="contact-section px-3 py-5 p-md-5">
         <div class="container">
-            <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="#">
+            <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
                 <h3 class="text-center mb-3">Get In Touch</h3>
                 <div class="row g-3">                                                           
                     <div class="col-12 col-md-6">
                         <label class="sr-only" for="cname">Name</label>
-                        <input type="text" class="form-control" id="cname" name="name" placeholder="Name" minlength="2" required="" aria-required="true">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" minlength="2" required="" aria-required="true">
                     </div>                    
                     <div class="col-12 col-md-6">
                         <label class="sr-only" for="cemail">Email</label>
-                        <input type="email" class="form-control" id="cemail" name="email" placeholder="Email" required="" aria-required="true">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="" aria-required="true">
                     </div>
                     <div class="col-12">
-                        <select id="services" class="form-select" name="services">
+                        <select id="package" class="form-select" name="package">
                             <option selected>Select a service package you're interested in...</option>
                             <option value="basic">Basic</option>
                             <option value="standard">Standard</option>
@@ -53,12 +54,13 @@
                     </div>
                     <div class="col-12">
                         <label class="sr-only" for="cmessage">Your message</label>
-                        <textarea class="form-control" id="cmessage" name="message" placeholder="Enter your message" rows="10" required="" aria-required="true"></textarea>
+                        <textarea class="form-control" id="message" name="message" placeholder="Enter your message" rows="10" required="" aria-required="true"></textarea>
                     </div>
                      <div class="form-group col-12">
                         <button type="submit" class="btn btn-block btn-primary py-2">Send Now</button>
                     </div>                           
                 </div><!--//form-row-->
+
             </form>
         </div><!--//container-->
     </section>

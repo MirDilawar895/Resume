@@ -57,5 +57,21 @@ class Answerable(models.Model):
     
 
 
+class Contact(models.Model):
+    SELECT_PACKAGE = (
+        ('basic','Basic'),
+        ('standard','Standard'),
+        ('premium','Premium'),
+        ('notsure','Not Sure'),
+    )
 
+    name = models.CharField(max_length=255, null=True)
+    email = models.EmailField(max_length=200)
+    package = models.CharField(max_length=50, choices=SELECT_PACKAGE)
+    message = models.CharField(max_length=255, null=True)
+
+    def __str__(self):
+        return self.name
+    
+    
 
