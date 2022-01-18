@@ -57,7 +57,7 @@ class Answerable(models.Model):
     
 
 
-class Contact(models.Model):
+class Booking(models.Model):
     SELECT_PACKAGE = (
         ('basic','Basic'),
         ('standard','Standard'),

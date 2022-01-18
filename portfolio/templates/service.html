@@ -7,7 +7,7 @@
 			<div class="container text-center single-col-max-width">
 				<h2 class="heading">Services &amp; Pricing</h2>
 				<div class="intro">
-					<p>I have 2+ years of development experience building web applications . You can take a look at my <a href="{% url 'portfolio'%}" target="_blank">project portfolio</a> and <a href="resume.html" target="_blank">online resume</a> to find out more about my skills and experiences.</p>
+					<p>I have 2+ years of development experience building web applications . You can take a look at my <a href="{% url 'portfolio'%}" target="_blank">project portfolio</a> and  to find out more about my skills and experiences.</p>
 					<p class="mb-0">I'm currently taking on freelance software development work. You're welcome to contact me for a custom quote for your project. I also offer development service packages with fixed pricing. </p>
 				</div>
 				
@@ -100,9 +100,9 @@
 					<tfoot>
 						<tr class="pricing-cta-row">
 							<td class="pricing-0-data"></td>
-							<td class="pricing-data pricing-1-data"><a class="btn btn-primary" href="#">Book Now</a></td>
-							<td class="pricing-data pricing-2-data mobile-is-hidden"><a class="btn btn-primary" href="#">Book Now</a></td>
-							<td class="pricing-data pricing-3-data mobile-is-hidden"><a class="btn btn-primary" href="#">Get A Quote</a></td>
+							<td class="pricing-data pricing-1-data"><a class="btn btn-primary" href="{% url 'contact' %}" target="_blank" >Book Now</a></td>
+							<td class="pricing-data pricing-2-data mobile-is-hidden"><a class="btn btn-primary" href="{% url 'contact' %}" target="_blank">Book Now</a></td>
+							<td class="pricing-data pricing-3-data mobile-is-hidden"><a class="btn btn-primary" href="{% url 'contact' %}" target="_blank">Get A Quote</a></td>
 						</tr>
 					</tfoot>
 				</table><!--//pricing-table-->

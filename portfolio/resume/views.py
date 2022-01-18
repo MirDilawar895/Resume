@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import About
-from .models import Skill, Testinomial, Project, Blog, Answerable
+from .models import Skill, Testinomial, Project, Blog, Answerable,Booking
+from django.contrib import messages
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -63,9 +65,32 @@ def contact(request):
         package = request.POST['package']
         message = request.POST['message']
 
-        con = Contact(name=name, email=email, package=package, message=message)
+        con = Booking(name=name, email=email, package=package, message=message)
         con.save()
-        message.success(request,'Data insert Succesfully')
+
+
+        send_mail(
+
+            'Welcome to my Freelancer Platform'
+
+
+            'Thanks for sending me invitation for your Project !!. I have got your mail and  I will get to your very soon!',
+            
+            'hi' + name +
+            'You have choice' + package + 'package'
+            
+
+            'WE hope you will enjoy our services here.',
+            'mirdilawar895@gmail.com',
+            [email],
+            fail_silently=False,
+
+        )
+        
+
+
+
+        # message.success(request,'Data insert Succesfully')
     return render(request,'contact.html' )
 
 
