@@ -3,6 +3,7 @@ from .models import About
 from .models import Skill, Testinomial, Project, Blog, Answerable,Booking
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.template import Template
 
 
 # Create your views here.
@@ -71,13 +72,10 @@ def contact(request):
 
         send_mail(
 
-            'Welcome to my Freelancer Platform'
-
-
+            
             'Thanks for sending me invitation for your Project !!. I have got your mail and  I will get to your very soon!',
             
-            'hi' + name +
-            'You have choice' + package + 'package'
+            'hi'   +  name  +    'You have choice'    + package +     'package'
             
 
             'WE hope you will enjoy our services here.',
